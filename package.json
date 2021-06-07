@@ -1,0 +1,18 @@
+{
+  "name": "localjudge",
+  "version": "0.1.0",
+  "description": "local dev enviroment for oj",
+  "main": "src/index.mjs",
+  "keywords": [
+    "oj"
+  ],
+  "author": "aGuegu <weihong.guan@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "pidusage": "^2.0.21",
+    "yaml": "^1.10.2"
+  },
+  "bin": {
+    "judge": "src/index.mjs"
+  }
+}
