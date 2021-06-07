@@ -9,6 +9,7 @@
   "author": "aGuegu <weihong.guan@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "chalk": "^4.1.1",
     "pidusage": "^2.0.21",
     "yaml": "^1.10.2"
   },
