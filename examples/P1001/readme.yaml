@@ -1,0 +1,6 @@
+url: https://www.luogu.com.cn/problem/P1001
+tests:
+  - input: '20 30'
+    output: '50'
+  - input: '-20 -10'
+    output: '-30'
