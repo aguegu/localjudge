@@ -55,14 +55,15 @@ $ npm link
  $ make watch
 ```
 
-  if you edited the source file, ` main.cpp` in this case, after saving it, you would see it got compiled success and failed. If compiled success, you would verify the tests input/output work or not.
+  If you edited the source file, ` main.cpp` in this case, after saving it, you would see it got compiled success and failed. If compiled success, you would verify the tests input/output work or not.
+
+  To quit `make watch`, type `CTRL-C`.
 
 6. Once you are satisfied with solution, the content of `main.cpp` could be submit to the `online judge` platform to get its score.
 
   On Luogu, in the code submit form, the language option should be set to `C++11` would just work fine.
 
-  Let's it.
+7. For a new problem to solve, just create a new folder, copy the `Makefile`, `readme.yaml` from the example folder within it. Then edit the `readme.yaml` with the question url and tests input/outputs, create a new `main.cpp` with your chosen editor. And get `make watch` started, you are good to go.
 
 
-
-Happy Coding.
+  That's it. Happy Coding.
