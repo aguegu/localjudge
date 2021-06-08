@@ -18,29 +18,29 @@ Getstarted
   * g++: the code compiler
   * nodejs (>=12.0): script runner
 
-  Most Linux system should have g++ and make preinstalled. `nodejs` enviroment is recommended to setup with [tj/n](https://github.com/tj/n).
+  Most Linux system should have `g++` and `make` preinstalled. `nodejs` enviroment is recommended to setup with [tj/n](https://github.com/tj/n).
   ```
   $ sudo apt install entr g++ make
   ```
 
 1. clone `localjudge`
 
-```
-$ git clone https://github.com/aguegu/localjudge.git
-```
+  ```
+  $ git clone https://github.com/aguegu/localjudge.git
+  ```
 
 2. install dependencies
 
-```
-$ cd localjudge
-$ npm i
-```
+  ```
+  $ cd localjudge
+  $ npm i
+  ```
 
 3. install `localjudge` command, so you could access to `judge` command within your shell
 
-```
-$ npm link
-```
+  ```
+  $ npm link
+  ```
 
 4. Go to a example folder, like `examples/P1047`, it contains 3 files
 
@@ -50,10 +50,10 @@ $ npm link
 
 5. Watch your source and got it compiled and tests run hot-reloaded.
 
-```
- $ cd examples/P1047
- $ make watch
-```
+  ```
+   $ cd examples/P1047
+   $ make watch
+  ```
 
   If you edited the source file, ` main.cpp` in this case, after saving it, you would see it got compiled success and failed. If compiled success, you would verify the tests input/output work or not.
 
@@ -65,5 +65,7 @@ $ npm link
 
 7. For a new problem to solve, just create a new folder, copy the `Makefile`, `readme.yaml` from the example folder within it. Then edit the `readme.yaml` with the question url and tests input/outputs, create a new `main.cpp` with your chosen editor. And get `make watch` started, you are good to go.
 
+  My blog about this repo: https://aguegu.github.io/posts/localjudge/
+  Discussion on Luogu Forum: https://www.luogu.com.cn/discuss/show/321053
 
   That's it. Happy Coding.
