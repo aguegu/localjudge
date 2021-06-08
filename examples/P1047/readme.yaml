@@ -1,6 +1,10 @@
 url: https://www.luogu.com.cn/problem/P1047
 tests:
   - input: |
+      10 1
+      1 2
+    output: '9'
+  - input: |
       500 3
       150 300
       100 200
