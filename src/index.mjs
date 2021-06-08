@@ -3,18 +3,25 @@
 import fs from 'fs';
 import YAML from 'yaml';
 import chalk from 'chalk';
+import pidusage from 'pidusage';
 import { spawn } from 'child_process';
 
 const verify = (cmd, { input, output }) => new Promise((resolve, reject) => {
   let actual = '';
 
-  const tim = setTimeout(() => {
-    reject({ input, output, actual: 'timeout' });
+  const proc = spawn(cmd);
+
+  const tim = setTimeout(async () => {
+    const { cpu, memory, elapsed } = await pidusage(proc.pid);
+    proc.kill();
+    reject({ input, output, actual: JSON.stringify({ cpu, memory, elapsed }) });
   }, 3000);
 
-  const proc = spawn(cmd);
   proc.stdin.write(input);
-  proc.stdin.write('\n');
+
+  if (!input.endsWith('\n')) {
+    proc.stdin.write('\n');
+  }
 
   proc.stdout.on('data', (data) => {
     actual += data;
@@ -25,15 +32,13 @@ const verify = (cmd, { input, output }) => new Promise((resolve, reject) => {
     if (code) {
       reject({ input, output, actual });
     } else {
-      if (actual === output) {
+      if (actual.trim() === output.trim()) {
         resolve({ input, output });
       } else {
         reject({ input, output, actual });
       }
     }
   });
-
-
 });
 
 (async () => {
@@ -44,10 +49,12 @@ const verify = (cmd, { input, output }) => new Promise((resolve, reject) => {
   results.forEach(({ status, reason, value }) => {
     if (status === 'fulfilled') {
       const { input, output } = value;
-      console.log(`input: ${input}\t output: ${output} \t ${chalk.green('SUCCESS')}`);
+      const multilineInput = input.split('\n').length > 1;
+      console.log(`${chalk.cyan('input')}: ${multilineInput ? `\n${input}` : `${input}\t`}${chalk.blue('output')}: ${output}\t${chalk.green('SUCCESS')}`);
     } else {
       const { input, output, actual } = reason;
-      console.log(`input: ${input}\t output: ${output} \t ${chalk.red('FAILED')}`);
+      const multilineInput = input.split('\n').length > 1;
+      console.log(`${chalk.cyan('input')}: ${multilineInput ? `\n${input}` : `${input}\t`}${chalk.blue('output')}: ${output}\tactual: ${chalk.yellow(actual)}\t${chalk.red('FAILED')}`);
     }
   });
 })();

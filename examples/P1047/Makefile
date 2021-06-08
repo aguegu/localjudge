@@ -5,7 +5,7 @@ SRC  = main.cpp
 OUTPUT_DIR = ./dist
 TARGET     := $(addprefix $(OUTPUT_DIR)/, $(notdir $(CURDIR)))
 
-$(TARGET): main.cpp | $(OUTPUT_DIR)
+$(TARGET): $(SRC) | $(OUTPUT_DIR)
 	$(CC) $(CFLAGS) $? -o $@
 
 run: $(TARGET)
