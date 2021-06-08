@@ -56,3 +56,13 @@ $ npm link
 ```
 
   if you edited the source file, ` main.cpp` in this case, after saving it, you would see it got compiled success and failed. If compiled success, you would verify the tests input/output work or not.
+
+6. Once you are satisfied with solution, the content of `main.cpp` could be submit to the `online judge` platform to get its score.
+
+  On Luogu, in the code submit form, the language option should be set to `C++11` would just work fine.
+
+  Let's it.
+
+
+
+Happy Coding.
