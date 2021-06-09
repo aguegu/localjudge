@@ -18,7 +18,8 @@
     "yaml": "^1.10.2"
   },
   "bin": {
-    "judge": "src/index.mjs"
+    "judge": "src/index.mjs",
+    "luogu": "src/luogu.mjs"
   },
   "devDependencies": {
     "eslint": "^7.28.0",

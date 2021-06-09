@@ -69,3 +69,12 @@ Getstarted
   Discussion on Luogu Forum: https://www.luogu.com.cn/discuss/show/321053
 
   That's it. Happy Coding.
+
+
+command: luogu
+---
+
+Thanks to this [unofficial api doc](https://sjx233.github.io/luogu-api-docs/) of luogu.com.cn. Another script named [luogu.mjs](src/luogu.mjs) is created to generate problem folder. It can also installed by `npm link`.
+
+So go to the folder for problems, etc `cd examples`
+then run command `luogu P1014`. `P1014` is the [problem id](https://www.luogu.com.cn/problem/P1014) on Luogu. Then a folder also named `P1014` is created with `main.cpp`, `readme.yaml`, `Makefile` in it. The `readme.yaml` got the sample tests filled. But you could always add more samples on you own.
