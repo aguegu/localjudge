@@ -1,5 +1,5 @@
 url: https://www.luogu.com.cn/problem/P1047
-tests:
+samples:
   - input: |
       10 1
       1 2

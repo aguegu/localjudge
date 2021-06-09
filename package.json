@@ -3,17 +3,26 @@
   "version": "0.1.0",
   "description": "local dev enviroment for oj",
   "main": "src/index.mjs",
+  "scripts": {
+    "lint": "eslint --ext .mjs src --fix"
+  },
   "keywords": [
     "oj"
   ],
   "author": "aGuegu <weihong.guan@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.1",
     "chalk": "^4.1.1",
     "pidusage": "^2.0.21",
     "yaml": "^1.10.2"
   },
   "bin": {
     "judge": "src/index.mjs"
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4"
   }
 }
