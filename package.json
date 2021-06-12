@@ -1,6 +1,6 @@
 {
   "name": "localjudge",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "local dev enviroment for oj",
   "main": "src/index.mjs",
   "scripts": {
