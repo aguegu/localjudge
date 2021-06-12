@@ -10,8 +10,11 @@ import axios from 'axios';
   const { data: { currentData: { problem: { samples } } } } = await axios.get(url, { headers: { 'x-luogu-type': 'content-only' } });
 
   const readme = YAML.stringify({ url, samples: samples.map(([ input, output ]) => ({ input, output })) });
-  const { data: makefile } = await axios.get('https://raw.githubusercontent.com/aguegu/localjudge/main/Makefile.template', { responseType: 'text' });
-  const { data: maincpp } = await axios.get('https://raw.githubusercontent.com/aguegu/localjudge/main/main.cpp.template', { responseType: 'text' });
+  // const { data: makefile } = await axios.get('https://raw.githubusercontent.com/aguegu/localjudge/main/Makefile.template', { responseType: 'text' });
+  const { data: makefile } = await axios.get('https://gitee.com/aGuegu/localjudge/raw/main/Makefile.template', { responseType: 'text' });
+
+  // const { data: maincpp } = await axios.get('https://raw.githubusercontent.com/aguegu/localjudge/main/main.cpp.template', { responseType: 'text' });
+  const { data: maincpp } = await axios.get('https://gitee.com/aGuegu/localjudge/raw/main/main.cpp.template', { responseType: 'text' });
 
   await fs.promises.mkdir(problemId);
   await Promise.all([

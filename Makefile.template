@@ -21,6 +21,6 @@ judge: $(TARGET)
 	judge readme.yaml $(TARGET)
 
 watch:
-	ls *.cpp | entr -s 'make judge'
+	ls *.cpp *.yaml | entr -s 'make judge'
 
 .PHONY: clean watch

@@ -35,6 +35,7 @@ const verify = (cmd, { input, output }) => new Promise((resolve, reject) => {
     } else if (actual.trim() === output.trim()) {
       resolve();
     } else {
+      // console.log({ actual, output });
       reject(new Error(actual));
     }
   });
@@ -45,7 +46,6 @@ const verify = (cmd, { input, output }) => new Promise((resolve, reject) => {
   const readme = await fs.promises.readFile(cnf, 'utf-8');
   const { samples } = YAML.parse(readme);
   const results = await Promise.allSettled(samples.map((sample) => verify(cmd, sample)));
-  // console.log(results);
   results.forEach(({ status, reason }, i) => {
     const { input, output } = samples[i];
     if (status === 'fulfilled') {
@@ -53,7 +53,7 @@ const verify = (cmd, { input, output }) => new Promise((resolve, reject) => {
       console.log(`${chalk.cyan('input')}: ${multilineInput ? `\n${input}` : `${input}\t`}${chalk.blue('output')}: ${output}\t${chalk.green('SUCCESS')}`);
     } else {
       const multilineInput = input.split('\n').length > 1;
-      console.log(`${chalk.cyan('input')}: ${multilineInput ? `\n${input}` : `${input}\t`}${chalk.blue('output')}: ${output}\tactual: ${chalk.yellow(reason.message)}\t${chalk.red('FAILED')}`);
+      console.log(`${chalk.cyan('input')}: ${multilineInput ? `\n${input}` : `${input}\t`}${chalk.blue('output')}: '${output}'\tactual: '${chalk.yellow(reason.message)}'\t${chalk.red('FAILED')}`);
     }
   });
 })();
