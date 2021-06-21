@@ -1,5 +1,5 @@
 CC      = g++
-CFLAGS  = -lm
+CFLAGS  = -lm -Wall
 
 SRC  = main.cpp
 OUTPUT_DIR = ./dist
