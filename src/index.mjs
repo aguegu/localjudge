@@ -20,9 +20,10 @@ const verify = (cmd, { input, output }) => new Promise((resolve, reject) => {
 
   proc.stdin.write(input);
 
-  if (!input.endsWith('\n')) {
-    proc.stdin.write('\n');
-  }
+  // if (!input.endsWith('\n')) {
+  //   proc.stdin.write('\n');
+  // }
+  proc.stdin.end();
 
   proc.stdout.on('data', (data) => {
     actual += data;
